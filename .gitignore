@@ -1,0 +1,11 @@
+.DS\_Store
+*~
+*.cache
+*.log
+*.pid               
+log         
+tmp/**/*
+config/database.yml
+db/*.sqlite3
+vendor/rails
+db/schema.rb
