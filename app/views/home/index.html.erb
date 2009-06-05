@@ -1,0 +1,20 @@
+<h1>Miyagi</h1>
+
+<div id="dojo_instructions">
+</div>
+
+<p>
+	<input type="button" value="Run"/>
+</p>
+
+<div id="code">
+	<small>Implementation</small>
+	<% remote_form_for @implementation do |f| %>
+		<%= f.text_area :code, :cols => 80, :rows => 15 %>
+	<% end %>
+   	<br/><br/>
+	<small>Test</small>
+	<% remote_form_for @description do |f| %>
+		<%= f.text_area :code, :cols => 80, :rows => 15 %>
+	<% end %>
+</div>
