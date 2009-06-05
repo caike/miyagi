@@ -3,16 +3,23 @@ require 'test_helper'
 class DescriptionsControllerTest < ActionController::TestCase
 
   test "run a stand-alone passing description (test)" do        
-    xhr :post, :run_tests, :description => { :code => single_test_description_code }     
+    xhr :post, :run_tests, :description => { :description_code => single_test_description_code }     
     assert assigns(:test_result), "does not show test result"
     assert_equal single_test_expected_result, assigns(:test_result), "unexpected result: #{assigns(:test_result)}"
   end
   
   test "run a passing description (test) with implementation"  do
-    xhr :post, :run_tests, :description => { :code => description_code }, :implementation => { :code => implementation_code }     
+    xhr :post, :run_tests, :description => { :description_code => description_code, :implementation_code => implementation_code }
     assert assigns(:test_result), "does not show test result"
     assert_equal single_test_expected_result, assigns(:test_result), "unexpected result: #{assigns(:test_result)}"
   end
+  
+  test "implementation without ending semi-colon"  do
+    xhr :post, :run_tests, :description => { :description_code => description_code, :implementation_code =>  "class Instrument; end" }
+    assert assigns(:test_result), "does not show test result"
+    assert_equal single_test_expected_result, assigns(:test_result), "unexpected result: #{assigns(:test_result)}"
+  end
+  
   
   protected
 
@@ -30,6 +37,6 @@ class DescriptionsControllerTest < ActionController::TestCase
   
   def implementation_code
     "class Instrument; end;"
-  end
+  end     
   
 end
