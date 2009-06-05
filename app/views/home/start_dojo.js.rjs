@@ -1,0 +1,4 @@
+page.replace_html :dojo_instructions, "Start coding!"
+page.replace_html :description_description_code, @description.description_code
+page.replace_html :description_implementation_code, @description.implementation_code 
+page.show 'run'

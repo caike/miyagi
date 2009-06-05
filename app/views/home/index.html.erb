@@ -1,9 +1,19 @@
 <h1>Miyagi</h1>
 <div id="code">             
+
+	<div id="dojo_instructions">
+		<% remote_form_for @description, :url => { :controller => "home", :action => "start_dojo" } do |f| %>
+			Type the name of your first class: <%= f.text_field :name, :size => 20 %>
+		<%= f.submit "Start!" %>
+		<% end %>
+	</div>
+
 	<% remote_form_for @description, :url => { :controller => "descriptions", :action => "run_tests" } do |f| %>   
-	<div id="dojo_instructions"></div>                      
-		<%= f.submit "Run!" %> 	
-	<br/>	  <br/>
+	<div id="run">
+				<%= f.submit "Run!" %> 	
+	</div>
+	<br/>
+	<br/>
 	<small>Test</small>
 	<br/>
 	<%= f.text_area :description_code, :cols => 80, :rows => 15 %>

@@ -1,5 +1,5 @@
 class Description < ActiveRecord::Base
-  belongs_to :implementation
+ 
    
   def run_tests
     unless self.implementation_code.nil?
