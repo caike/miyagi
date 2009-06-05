@@ -4,8 +4,8 @@ $(document).observe('dom:loaded', function(){
 	Event.addBehavior({ 
 		'#dojo_instructions': function(){
 			this.innerHTML = "Are you ready ?"
-		}		
+		},		
+		
+     	
 	});	
 });
-
-

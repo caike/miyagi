@@ -2,19 +2,16 @@
 
 <div id="dojo_instructions">
 </div>
-
-<p>
-	<input type="button" value="Run"/>
-</p>
-
+<br/>
 <div id="code">
+	<% remote_form_for @description, :url => { :controller => "descriptions", :action => "run_tests" } do |f| %>
+	<small>Test</small> <%= f.submit "Run!" %>
+                                            <br/>
+		<%= f.text_area :code, :cols => 80, :rows => 15 %>
+	<% end %>
 	<small>Implementation</small>
 	<% remote_form_for @implementation do |f| %>
 		<%= f.text_area :code, :cols => 80, :rows => 15 %>
 	<% end %>
    	<br/><br/>
-	<small>Test</small>
-	<% remote_form_for @description do |f| %>
-		<%= f.text_area :code, :cols => 80, :rows => 15 %>
-	<% end %>
 </div>

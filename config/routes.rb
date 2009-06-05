@@ -4,6 +4,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resource :implementations, :descriptions
   
+  map.connect 'descriptions/run_tests', :conditions => {:method => :post}, :controller => "descriptions", :action => "run_tests"
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
