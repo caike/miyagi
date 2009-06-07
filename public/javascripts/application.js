@@ -8,9 +8,7 @@ $(document).observe('dom:loaded', function(){
 	});	
 });
 
-TargetDate = "12/31/2020 5:00 AM";
-BackColor = "palegreen";
-ForeColor = "navy";
+
 CountActive = true;
 CountStepper = -1;
 LeadingZero = true;
@@ -60,39 +58,3 @@ function calcage(secs, num1, num2) {
 	s = "0" + s;
 	return "<b>" + s + "</b>";
 }
-
-
-/*
-if (typeof(BackColor)=="undefined")
-BackColor = "white";
-if (typeof(ForeColor)=="undefined")
-ForeColor= "black";
-if (typeof(TargetDate)=="undefined")
-TargetDate = "12/31/2020 5:00 AM";
-if (typeof(DisplayFormat)=="undefined")
-DisplayFormat = "%%D%% Days, %%H%% Hours, %%M%% Minutes, %%S%% Seconds.";
-if (typeof(CountActive)=="undefined")
-CountActive = true;
-if (typeof(FinishMessage)=="undefined")
-FinishMessage = "";
-if (typeof(CountStepper)!="number")
-CountStepper = -1;
-if (typeof(LeadingZero)=="undefined")
-LeadingZero = true;
-
-
-CountStepper = Math.ceil(CountStepper); 
-
-if (CountStepper == 0)
-CountActive = false;
-var SetTimeOutPeriod = (Math.abs(CountStepper)-1)*1000 + 990;
-
-var dthen = new Date();
-dthen.setMinutes(dthen.getMinutes() + 10);
-
-var dnow = new Date();
-if(CountStepper>0)
-ddiff = new Date(dnow-dthen);
-else
-ddiff = new Date(dthen-dnow);
-gsecs = Math.floor(ddiff.valueOf()/1000);*/
