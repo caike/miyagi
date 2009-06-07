@@ -79,3 +79,12 @@ a {
   font-size: 12px;
   list-style: disc;
 }
+
+#dojo_instructions {
+    width: 480px;
+	float: left;
+}
+
+#coding_timer{
+
+}
