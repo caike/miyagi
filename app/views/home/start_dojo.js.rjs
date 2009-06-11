@@ -3,5 +3,6 @@ page.replace_html :description_description_code, @description.description_code
 page.replace_html :description_implementation_code, @description.implementation_code 
 page.replace_html :test_title, (@description.name.underscore.to_s + '_test.rb')
 page.replace_html :implementation_title, (@description.name.underscore.to_s + '.rb')
+page.replace_html :first, @description.name
 page.call 'startCounter'
 page.show 'run'
