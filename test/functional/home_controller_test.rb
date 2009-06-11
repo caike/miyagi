@@ -25,16 +25,16 @@ class HomeControllerTest < ActionController::TestCase
   protected
   
   def implementation_code
-    impl_code = 'class Instrument
+    'class Instrument
 end'
-    impl_code
   end
   
   def description_code
-    desc_code = 'class InstrumentTest < Test::Unit::TestCase
-end'
-    desc_code
+    'class InstrumentTest < Test::Unit::TestCase
+  def test_true
+    assert true
   end
-  
+end'
+  end  
      
 end

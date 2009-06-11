@@ -9,11 +9,13 @@ $(document).observe('dom:loaded', function(){
 });
 
 
+// counter
+
 CountActive = true;
 CountStepper = -1;
 LeadingZero = true;
 DisplayFormat = "%%M%% Minutes, %%S%% Seconds.";
-FinishMessage = "It is finally here!";
+FinishMessage = "One of the pairs now change!";
 
 function startCounter(){
 		
@@ -40,9 +42,8 @@ function CountBack(secs) {
  		$('coding_timer').innerHTML = FinishMessage;
 		return;
 	}
-	
+	          
 	DisplayStr = DisplayFormat.replace(/%%D%%/g, calcage(secs,86400,100000));
-	DisplayStr = DisplayStr.replace(/%%H%%/g, calcage(secs,3600,24));
 	DisplayStr = DisplayStr.replace(/%%M%%/g, calcage(secs,60,60));
 	DisplayStr = DisplayStr.replace(/%%S%%/g, calcage(secs,1,60));
 
@@ -57,4 +58,43 @@ function calcage(secs, num1, num2) {
 	if (LeadingZero && s.length < 2)
 	s = "0" + s;
 	return "<b>" + s + "</b>";
+}
+
+// tabs
+
+function tabselect(tab) {
+  var tablist = $('tabcontrol1').getElementsByTagName('li');
+  var nodes = $A(tablist);
+  var lClassType = tab.className.substring(0, tab.className.indexOf('-') );
+
+  nodes.each(function(node){
+    if (node.id == tab.id) {
+      tab.className=lClassType+'-selected';
+    } else {
+      node.className=lClassType+'-unselected';
+    };
+  });
+}
+
+function paneselect(pane) {
+  var panelist = $('panecontrol1').getElementsByTagName('li');
+  var nodes = $A(panelist);
+
+  nodes.each(function(node){
+    if (node.id == pane.id) {
+      pane.className='pane-selected';
+    } else {
+      node.className='pane-unselected';
+    };
+  });
+}
+
+function loadPane(pane, src) {
+  if (pane.innerHTML=='' || pane.innerHTML=='<img alt="Wait" src="/images/spinner.gif" style="vertical-align:-3px" /> Loading...') {
+    reloadPane(pane, src);
+  }
+}
+
+function reloadPane(pane, src) {
+  new Ajax.Updater(pane, src, {asynchronous:1, evalScripts:true, onLoading:function(request){pane.innerHTML='<img alt="Wait" src="/images/spinner.gif" style="vertical-align:-3px" /> Loading...'}})
 }

@@ -22,6 +22,9 @@ end"
   
   def initial_description_code(name)
     "class #{name}Test < Test::Unit::TestCase
+  def test_true
+    assert true
+  end
 end"
   end
   
