@@ -6,7 +6,7 @@ class Description < ActiveRecord::Base
       self.implementation_code = self.implementation_code.concat(';') unless self.implementation_code[-1] == ';'
     end
     test_unit = '-rtest/unit'
-    result = `ruby -I.:lib:test #{test_unit} -e "#{self.implementation_code} #{self.description_code}"`
+    result = `ruby -I.:lib:test #{test_unit} -e "#{self.implementation_code} #{self.test_code}"`
     result.match(/\d tests.*/).to_s
   end
   

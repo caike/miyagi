@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   def start_dojo
     @description = Description.new(params[:description])
     @description.implementation_code = initial_implementation_code(@description.name)
-    @description.description_code = initial_description_code(@description.name)
+    @description.test_code = initial_test_code(@description.name)
     respond_to do |f|
       f.js
     end
@@ -20,7 +20,7 @@ class HomeController < ApplicationController
 end"
   end
   
-  def initial_description_code(name)
+  def initial_test_code(name)
     "class #{name}Test < Test::Unit::TestCase
   def test_true
     assert true

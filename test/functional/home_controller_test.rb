@@ -19,7 +19,7 @@ class HomeControllerTest < ActionController::TestCase
     name = "Instrument"
     xhr :post, :start_dojo, :description => { :name => name }
     assert_equal implementation_code, assigns(:description).implementation_code, "implementation code is not set"
-    assert_equal description_code, assigns(:description).description_code, "description code is not set"
+    assert_equal test_code, assigns(:description).test_code, "description code is not set"
   end
   
   protected
@@ -29,7 +29,7 @@ class HomeControllerTest < ActionController::TestCase
 end'
   end
   
-  def description_code
+  def test_code
     'class InstrumentTest < Test::Unit::TestCase
   def test_true
     assert true
